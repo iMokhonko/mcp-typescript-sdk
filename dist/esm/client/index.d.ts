@@ -70,9 +70,9 @@ export declare class Client<RequestT extends Request = Request, NotificationT ex
     ping(options?: RequestOptions): Promise<{
         _meta?: import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough"> | undefined;
     }>;
-    complete(params: CompleteRequest["params"], options?: RequestOptions): Promise<import("zod").objectOutputType<{
+    complete(params: CompleteRequest["params"], options?: RequestOptions): Promise<import("zod").objectOutputType<import("zod").objectUtil.extendShape<{
         _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-    } & {
+    }, {
         completion: import("zod").ZodObject<{
             values: import("zod").ZodArray<import("zod").ZodString, "many">;
             total: import("zod").ZodOptional<import("zod").ZodNumber>;
@@ -86,13 +86,13 @@ export declare class Client<RequestT extends Request = Request, NotificationT ex
             total: import("zod").ZodOptional<import("zod").ZodNumber>;
             hasMore: import("zod").ZodOptional<import("zod").ZodBoolean>;
         }, import("zod").ZodTypeAny, "passthrough">>;
-    }, import("zod").ZodTypeAny, "passthrough">>;
+    }>, import("zod").ZodTypeAny, "passthrough">>;
     setLoggingLevel(level: LoggingLevel, options?: RequestOptions): Promise<{
         _meta?: import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough"> | undefined;
     }>;
-    getPrompt(params: GetPromptRequest["params"], options?: RequestOptions): Promise<import("zod").objectOutputType<{
+    getPrompt(params: GetPromptRequest["params"], options?: RequestOptions): Promise<import("zod").objectOutputType<import("zod").objectUtil.extendShape<{
         _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-    } & {
+    }, {
         description: import("zod").ZodOptional<import("zod").ZodString>;
         messages: import("zod").ZodArray<import("zod").ZodObject<{
             role: import("zod").ZodEnum<["user", "assistant"]>;
@@ -138,155 +138,155 @@ export declare class Client<RequestT extends Request = Request, NotificationT ex
                 data: import("zod").ZodEffects<import("zod").ZodString, string, string>;
                 mimeType: import("zod").ZodString;
                 _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-            }, import("zod").ZodTypeAny, "passthrough">>, import("zod").ZodObject<{
+            }, import("zod").ZodTypeAny, "passthrough">>, import("zod").ZodObject<import("zod").objectUtil.extendShape<import("zod").objectUtil.extendShape<{
                 name: import("zod").ZodString;
                 title: import("zod").ZodOptional<import("zod").ZodString>;
-            } & {
+            }, {
                 uri: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                 _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-            } & {
+            }>, {
                 type: import("zod").ZodLiteral<"resource_link">;
+            }>, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<import("zod").objectUtil.extendShape<import("zod").objectUtil.extendShape<{
+                name: import("zod").ZodString;
+                title: import("zod").ZodOptional<import("zod").ZodString>;
+            }, {
+                uri: import("zod").ZodString;
+                description: import("zod").ZodOptional<import("zod").ZodString>;
+                mimeType: import("zod").ZodOptional<import("zod").ZodString>;
+                _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
+            }>, {
+                type: import("zod").ZodLiteral<"resource_link">;
+            }>, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<import("zod").objectUtil.extendShape<import("zod").objectUtil.extendShape<{
+                name: import("zod").ZodString;
+                title: import("zod").ZodOptional<import("zod").ZodString>;
+            }, {
+                uri: import("zod").ZodString;
+                description: import("zod").ZodOptional<import("zod").ZodString>;
+                mimeType: import("zod").ZodOptional<import("zod").ZodString>;
+                _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
+            }>, {
+                type: import("zod").ZodLiteral<"resource_link">;
+            }>, import("zod").ZodTypeAny, "passthrough">>, import("zod").ZodObject<{
+                type: import("zod").ZodLiteral<"resource">;
+                resource: import("zod").ZodUnion<[import("zod").ZodObject<import("zod").objectUtil.extendShape<{
+                    uri: import("zod").ZodString;
+                    mimeType: import("zod").ZodOptional<import("zod").ZodString>;
+                    _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
+                }, {
+                    text: import("zod").ZodString;
+                }>, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<import("zod").objectUtil.extendShape<{
+                    uri: import("zod").ZodString;
+                    mimeType: import("zod").ZodOptional<import("zod").ZodString>;
+                    _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
+                }, {
+                    text: import("zod").ZodString;
+                }>, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<import("zod").objectUtil.extendShape<{
+                    uri: import("zod").ZodString;
+                    mimeType: import("zod").ZodOptional<import("zod").ZodString>;
+                    _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
+                }, {
+                    text: import("zod").ZodString;
+                }>, import("zod").ZodTypeAny, "passthrough">>, import("zod").ZodObject<import("zod").objectUtil.extendShape<{
+                    uri: import("zod").ZodString;
+                    mimeType: import("zod").ZodOptional<import("zod").ZodString>;
+                    _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
+                }, {
+                    blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
+                }>, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<import("zod").objectUtil.extendShape<{
+                    uri: import("zod").ZodString;
+                    mimeType: import("zod").ZodOptional<import("zod").ZodString>;
+                    _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
+                }, {
+                    blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
+                }>, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<import("zod").objectUtil.extendShape<{
+                    uri: import("zod").ZodString;
+                    mimeType: import("zod").ZodOptional<import("zod").ZodString>;
+                    _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
+                }, {
+                    blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
+                }>, import("zod").ZodTypeAny, "passthrough">>]>;
+                _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
             }, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{
-                name: import("zod").ZodString;
-                title: import("zod").ZodOptional<import("zod").ZodString>;
-            } & {
-                uri: import("zod").ZodString;
-                description: import("zod").ZodOptional<import("zod").ZodString>;
-                mimeType: import("zod").ZodOptional<import("zod").ZodString>;
-                _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-            } & {
-                type: import("zod").ZodLiteral<"resource_link">;
-            }, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{
-                name: import("zod").ZodString;
-                title: import("zod").ZodOptional<import("zod").ZodString>;
-            } & {
-                uri: import("zod").ZodString;
-                description: import("zod").ZodOptional<import("zod").ZodString>;
-                mimeType: import("zod").ZodOptional<import("zod").ZodString>;
-                _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-            } & {
-                type: import("zod").ZodLiteral<"resource_link">;
-            }, import("zod").ZodTypeAny, "passthrough">>, import("zod").ZodObject<{
                 type: import("zod").ZodLiteral<"resource">;
-                resource: import("zod").ZodUnion<[import("zod").ZodObject<{
+                resource: import("zod").ZodUnion<[import("zod").ZodObject<import("zod").objectUtil.extendShape<{
                     uri: import("zod").ZodString;
                     mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                     _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
+                }, {
                     text: import("zod").ZodString;
-                }, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{
+                }>, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<import("zod").objectUtil.extendShape<{
                     uri: import("zod").ZodString;
                     mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                     _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
+                }, {
                     text: import("zod").ZodString;
-                }, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{
+                }>, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<import("zod").objectUtil.extendShape<{
                     uri: import("zod").ZodString;
                     mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                     _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
+                }, {
                     text: import("zod").ZodString;
-                }, import("zod").ZodTypeAny, "passthrough">>, import("zod").ZodObject<{
+                }>, import("zod").ZodTypeAny, "passthrough">>, import("zod").ZodObject<import("zod").objectUtil.extendShape<{
                     uri: import("zod").ZodString;
                     mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                     _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
+                }, {
                     blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-                }, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{
+                }>, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<import("zod").objectUtil.extendShape<{
                     uri: import("zod").ZodString;
                     mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                     _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
+                }, {
                     blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-                }, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{
+                }>, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<import("zod").objectUtil.extendShape<{
                     uri: import("zod").ZodString;
                     mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                     _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
+                }, {
                     blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-                }, import("zod").ZodTypeAny, "passthrough">>]>;
-                _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-            }, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{
-                type: import("zod").ZodLiteral<"resource">;
-                resource: import("zod").ZodUnion<[import("zod").ZodObject<{
-                    uri: import("zod").ZodString;
-                    mimeType: import("zod").ZodOptional<import("zod").ZodString>;
-                    _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
-                    text: import("zod").ZodString;
-                }, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{
-                    uri: import("zod").ZodString;
-                    mimeType: import("zod").ZodOptional<import("zod").ZodString>;
-                    _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
-                    text: import("zod").ZodString;
-                }, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{
-                    uri: import("zod").ZodString;
-                    mimeType: import("zod").ZodOptional<import("zod").ZodString>;
-                    _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
-                    text: import("zod").ZodString;
-                }, import("zod").ZodTypeAny, "passthrough">>, import("zod").ZodObject<{
-                    uri: import("zod").ZodString;
-                    mimeType: import("zod").ZodOptional<import("zod").ZodString>;
-                    _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
-                    blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-                }, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{
-                    uri: import("zod").ZodString;
-                    mimeType: import("zod").ZodOptional<import("zod").ZodString>;
-                    _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
-                    blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-                }, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{
-                    uri: import("zod").ZodString;
-                    mimeType: import("zod").ZodOptional<import("zod").ZodString>;
-                    _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
-                    blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-                }, import("zod").ZodTypeAny, "passthrough">>]>;
+                }>, import("zod").ZodTypeAny, "passthrough">>]>;
                 _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
             }, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{
                 type: import("zod").ZodLiteral<"resource">;
-                resource: import("zod").ZodUnion<[import("zod").ZodObject<{
+                resource: import("zod").ZodUnion<[import("zod").ZodObject<import("zod").objectUtil.extendShape<{
                     uri: import("zod").ZodString;
                     mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                     _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
+                }, {
                     text: import("zod").ZodString;
-                }, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{
+                }>, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<import("zod").objectUtil.extendShape<{
                     uri: import("zod").ZodString;
                     mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                     _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
+                }, {
                     text: import("zod").ZodString;
-                }, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{
+                }>, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<import("zod").objectUtil.extendShape<{
                     uri: import("zod").ZodString;
                     mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                     _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
+                }, {
                     text: import("zod").ZodString;
-                }, import("zod").ZodTypeAny, "passthrough">>, import("zod").ZodObject<{
+                }>, import("zod").ZodTypeAny, "passthrough">>, import("zod").ZodObject<import("zod").objectUtil.extendShape<{
                     uri: import("zod").ZodString;
                     mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                     _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
+                }, {
                     blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-                }, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{
+                }>, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<import("zod").objectUtil.extendShape<{
                     uri: import("zod").ZodString;
                     mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                     _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
+                }, {
                     blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-                }, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{
+                }>, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<import("zod").objectUtil.extendShape<{
                     uri: import("zod").ZodString;
                     mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                     _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
+                }, {
                     blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-                }, import("zod").ZodTypeAny, "passthrough">>]>;
+                }>, import("zod").ZodTypeAny, "passthrough">>]>;
                 _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
             }, import("zod").ZodTypeAny, "passthrough">>]>;
         }, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{
@@ -333,155 +333,155 @@ export declare class Client<RequestT extends Request = Request, NotificationT ex
                 data: import("zod").ZodEffects<import("zod").ZodString, string, string>;
                 mimeType: import("zod").ZodString;
                 _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-            }, import("zod").ZodTypeAny, "passthrough">>, import("zod").ZodObject<{
+            }, import("zod").ZodTypeAny, "passthrough">>, import("zod").ZodObject<import("zod").objectUtil.extendShape<import("zod").objectUtil.extendShape<{
                 name: import("zod").ZodString;
                 title: import("zod").ZodOptional<import("zod").ZodString>;
-            } & {
+            }, {
                 uri: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                 _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-            } & {
+            }>, {
                 type: import("zod").ZodLiteral<"resource_link">;
+            }>, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<import("zod").objectUtil.extendShape<import("zod").objectUtil.extendShape<{
+                name: import("zod").ZodString;
+                title: import("zod").ZodOptional<import("zod").ZodString>;
+            }, {
+                uri: import("zod").ZodString;
+                description: import("zod").ZodOptional<import("zod").ZodString>;
+                mimeType: import("zod").ZodOptional<import("zod").ZodString>;
+                _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
+            }>, {
+                type: import("zod").ZodLiteral<"resource_link">;
+            }>, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<import("zod").objectUtil.extendShape<import("zod").objectUtil.extendShape<{
+                name: import("zod").ZodString;
+                title: import("zod").ZodOptional<import("zod").ZodString>;
+            }, {
+                uri: import("zod").ZodString;
+                description: import("zod").ZodOptional<import("zod").ZodString>;
+                mimeType: import("zod").ZodOptional<import("zod").ZodString>;
+                _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
+            }>, {
+                type: import("zod").ZodLiteral<"resource_link">;
+            }>, import("zod").ZodTypeAny, "passthrough">>, import("zod").ZodObject<{
+                type: import("zod").ZodLiteral<"resource">;
+                resource: import("zod").ZodUnion<[import("zod").ZodObject<import("zod").objectUtil.extendShape<{
+                    uri: import("zod").ZodString;
+                    mimeType: import("zod").ZodOptional<import("zod").ZodString>;
+                    _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
+                }, {
+                    text: import("zod").ZodString;
+                }>, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<import("zod").objectUtil.extendShape<{
+                    uri: import("zod").ZodString;
+                    mimeType: import("zod").ZodOptional<import("zod").ZodString>;
+                    _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
+                }, {
+                    text: import("zod").ZodString;
+                }>, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<import("zod").objectUtil.extendShape<{
+                    uri: import("zod").ZodString;
+                    mimeType: import("zod").ZodOptional<import("zod").ZodString>;
+                    _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
+                }, {
+                    text: import("zod").ZodString;
+                }>, import("zod").ZodTypeAny, "passthrough">>, import("zod").ZodObject<import("zod").objectUtil.extendShape<{
+                    uri: import("zod").ZodString;
+                    mimeType: import("zod").ZodOptional<import("zod").ZodString>;
+                    _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
+                }, {
+                    blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
+                }>, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<import("zod").objectUtil.extendShape<{
+                    uri: import("zod").ZodString;
+                    mimeType: import("zod").ZodOptional<import("zod").ZodString>;
+                    _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
+                }, {
+                    blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
+                }>, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<import("zod").objectUtil.extendShape<{
+                    uri: import("zod").ZodString;
+                    mimeType: import("zod").ZodOptional<import("zod").ZodString>;
+                    _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
+                }, {
+                    blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
+                }>, import("zod").ZodTypeAny, "passthrough">>]>;
+                _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
             }, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{
-                name: import("zod").ZodString;
-                title: import("zod").ZodOptional<import("zod").ZodString>;
-            } & {
-                uri: import("zod").ZodString;
-                description: import("zod").ZodOptional<import("zod").ZodString>;
-                mimeType: import("zod").ZodOptional<import("zod").ZodString>;
-                _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-            } & {
-                type: import("zod").ZodLiteral<"resource_link">;
-            }, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{
-                name: import("zod").ZodString;
-                title: import("zod").ZodOptional<import("zod").ZodString>;
-            } & {
-                uri: import("zod").ZodString;
-                description: import("zod").ZodOptional<import("zod").ZodString>;
-                mimeType: import("zod").ZodOptional<import("zod").ZodString>;
-                _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-            } & {
-                type: import("zod").ZodLiteral<"resource_link">;
-            }, import("zod").ZodTypeAny, "passthrough">>, import("zod").ZodObject<{
                 type: import("zod").ZodLiteral<"resource">;
-                resource: import("zod").ZodUnion<[import("zod").ZodObject<{
+                resource: import("zod").ZodUnion<[import("zod").ZodObject<import("zod").objectUtil.extendShape<{
                     uri: import("zod").ZodString;
                     mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                     _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
+                }, {
                     text: import("zod").ZodString;
-                }, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{
+                }>, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<import("zod").objectUtil.extendShape<{
                     uri: import("zod").ZodString;
                     mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                     _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
+                }, {
                     text: import("zod").ZodString;
-                }, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{
+                }>, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<import("zod").objectUtil.extendShape<{
                     uri: import("zod").ZodString;
                     mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                     _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
+                }, {
                     text: import("zod").ZodString;
-                }, import("zod").ZodTypeAny, "passthrough">>, import("zod").ZodObject<{
+                }>, import("zod").ZodTypeAny, "passthrough">>, import("zod").ZodObject<import("zod").objectUtil.extendShape<{
                     uri: import("zod").ZodString;
                     mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                     _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
+                }, {
                     blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-                }, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{
+                }>, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<import("zod").objectUtil.extendShape<{
                     uri: import("zod").ZodString;
                     mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                     _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
+                }, {
                     blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-                }, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{
+                }>, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<import("zod").objectUtil.extendShape<{
                     uri: import("zod").ZodString;
                     mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                     _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
+                }, {
                     blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-                }, import("zod").ZodTypeAny, "passthrough">>]>;
-                _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-            }, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{
-                type: import("zod").ZodLiteral<"resource">;
-                resource: import("zod").ZodUnion<[import("zod").ZodObject<{
-                    uri: import("zod").ZodString;
-                    mimeType: import("zod").ZodOptional<import("zod").ZodString>;
-                    _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
-                    text: import("zod").ZodString;
-                }, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{
-                    uri: import("zod").ZodString;
-                    mimeType: import("zod").ZodOptional<import("zod").ZodString>;
-                    _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
-                    text: import("zod").ZodString;
-                }, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{
-                    uri: import("zod").ZodString;
-                    mimeType: import("zod").ZodOptional<import("zod").ZodString>;
-                    _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
-                    text: import("zod").ZodString;
-                }, import("zod").ZodTypeAny, "passthrough">>, import("zod").ZodObject<{
-                    uri: import("zod").ZodString;
-                    mimeType: import("zod").ZodOptional<import("zod").ZodString>;
-                    _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
-                    blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-                }, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{
-                    uri: import("zod").ZodString;
-                    mimeType: import("zod").ZodOptional<import("zod").ZodString>;
-                    _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
-                    blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-                }, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{
-                    uri: import("zod").ZodString;
-                    mimeType: import("zod").ZodOptional<import("zod").ZodString>;
-                    _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
-                    blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-                }, import("zod").ZodTypeAny, "passthrough">>]>;
+                }>, import("zod").ZodTypeAny, "passthrough">>]>;
                 _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
             }, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{
                 type: import("zod").ZodLiteral<"resource">;
-                resource: import("zod").ZodUnion<[import("zod").ZodObject<{
+                resource: import("zod").ZodUnion<[import("zod").ZodObject<import("zod").objectUtil.extendShape<{
                     uri: import("zod").ZodString;
                     mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                     _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
+                }, {
                     text: import("zod").ZodString;
-                }, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{
+                }>, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<import("zod").objectUtil.extendShape<{
                     uri: import("zod").ZodString;
                     mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                     _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
+                }, {
                     text: import("zod").ZodString;
-                }, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{
+                }>, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<import("zod").objectUtil.extendShape<{
                     uri: import("zod").ZodString;
                     mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                     _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
+                }, {
                     text: import("zod").ZodString;
-                }, import("zod").ZodTypeAny, "passthrough">>, import("zod").ZodObject<{
+                }>, import("zod").ZodTypeAny, "passthrough">>, import("zod").ZodObject<import("zod").objectUtil.extendShape<{
                     uri: import("zod").ZodString;
                     mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                     _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
+                }, {
                     blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-                }, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{
+                }>, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<import("zod").objectUtil.extendShape<{
                     uri: import("zod").ZodString;
                     mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                     _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
+                }, {
                     blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-                }, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{
+                }>, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<import("zod").objectUtil.extendShape<{
                     uri: import("zod").ZodString;
                     mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                     _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
+                }, {
                     blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-                }, import("zod").ZodTypeAny, "passthrough">>]>;
+                }>, import("zod").ZodTypeAny, "passthrough">>]>;
                 _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
             }, import("zod").ZodTypeAny, "passthrough">>]>;
         }, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{
@@ -528,168 +528,168 @@ export declare class Client<RequestT extends Request = Request, NotificationT ex
                 data: import("zod").ZodEffects<import("zod").ZodString, string, string>;
                 mimeType: import("zod").ZodString;
                 _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-            }, import("zod").ZodTypeAny, "passthrough">>, import("zod").ZodObject<{
+            }, import("zod").ZodTypeAny, "passthrough">>, import("zod").ZodObject<import("zod").objectUtil.extendShape<import("zod").objectUtil.extendShape<{
                 name: import("zod").ZodString;
                 title: import("zod").ZodOptional<import("zod").ZodString>;
-            } & {
+            }, {
                 uri: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                 _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-            } & {
+            }>, {
                 type: import("zod").ZodLiteral<"resource_link">;
+            }>, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<import("zod").objectUtil.extendShape<import("zod").objectUtil.extendShape<{
+                name: import("zod").ZodString;
+                title: import("zod").ZodOptional<import("zod").ZodString>;
+            }, {
+                uri: import("zod").ZodString;
+                description: import("zod").ZodOptional<import("zod").ZodString>;
+                mimeType: import("zod").ZodOptional<import("zod").ZodString>;
+                _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
+            }>, {
+                type: import("zod").ZodLiteral<"resource_link">;
+            }>, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<import("zod").objectUtil.extendShape<import("zod").objectUtil.extendShape<{
+                name: import("zod").ZodString;
+                title: import("zod").ZodOptional<import("zod").ZodString>;
+            }, {
+                uri: import("zod").ZodString;
+                description: import("zod").ZodOptional<import("zod").ZodString>;
+                mimeType: import("zod").ZodOptional<import("zod").ZodString>;
+                _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
+            }>, {
+                type: import("zod").ZodLiteral<"resource_link">;
+            }>, import("zod").ZodTypeAny, "passthrough">>, import("zod").ZodObject<{
+                type: import("zod").ZodLiteral<"resource">;
+                resource: import("zod").ZodUnion<[import("zod").ZodObject<import("zod").objectUtil.extendShape<{
+                    uri: import("zod").ZodString;
+                    mimeType: import("zod").ZodOptional<import("zod").ZodString>;
+                    _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
+                }, {
+                    text: import("zod").ZodString;
+                }>, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<import("zod").objectUtil.extendShape<{
+                    uri: import("zod").ZodString;
+                    mimeType: import("zod").ZodOptional<import("zod").ZodString>;
+                    _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
+                }, {
+                    text: import("zod").ZodString;
+                }>, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<import("zod").objectUtil.extendShape<{
+                    uri: import("zod").ZodString;
+                    mimeType: import("zod").ZodOptional<import("zod").ZodString>;
+                    _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
+                }, {
+                    text: import("zod").ZodString;
+                }>, import("zod").ZodTypeAny, "passthrough">>, import("zod").ZodObject<import("zod").objectUtil.extendShape<{
+                    uri: import("zod").ZodString;
+                    mimeType: import("zod").ZodOptional<import("zod").ZodString>;
+                    _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
+                }, {
+                    blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
+                }>, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<import("zod").objectUtil.extendShape<{
+                    uri: import("zod").ZodString;
+                    mimeType: import("zod").ZodOptional<import("zod").ZodString>;
+                    _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
+                }, {
+                    blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
+                }>, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<import("zod").objectUtil.extendShape<{
+                    uri: import("zod").ZodString;
+                    mimeType: import("zod").ZodOptional<import("zod").ZodString>;
+                    _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
+                }, {
+                    blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
+                }>, import("zod").ZodTypeAny, "passthrough">>]>;
+                _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
             }, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{
-                name: import("zod").ZodString;
-                title: import("zod").ZodOptional<import("zod").ZodString>;
-            } & {
-                uri: import("zod").ZodString;
-                description: import("zod").ZodOptional<import("zod").ZodString>;
-                mimeType: import("zod").ZodOptional<import("zod").ZodString>;
-                _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-            } & {
-                type: import("zod").ZodLiteral<"resource_link">;
-            }, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{
-                name: import("zod").ZodString;
-                title: import("zod").ZodOptional<import("zod").ZodString>;
-            } & {
-                uri: import("zod").ZodString;
-                description: import("zod").ZodOptional<import("zod").ZodString>;
-                mimeType: import("zod").ZodOptional<import("zod").ZodString>;
-                _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-            } & {
-                type: import("zod").ZodLiteral<"resource_link">;
-            }, import("zod").ZodTypeAny, "passthrough">>, import("zod").ZodObject<{
                 type: import("zod").ZodLiteral<"resource">;
-                resource: import("zod").ZodUnion<[import("zod").ZodObject<{
+                resource: import("zod").ZodUnion<[import("zod").ZodObject<import("zod").objectUtil.extendShape<{
                     uri: import("zod").ZodString;
                     mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                     _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
+                }, {
                     text: import("zod").ZodString;
-                }, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{
+                }>, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<import("zod").objectUtil.extendShape<{
                     uri: import("zod").ZodString;
                     mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                     _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
+                }, {
                     text: import("zod").ZodString;
-                }, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{
+                }>, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<import("zod").objectUtil.extendShape<{
                     uri: import("zod").ZodString;
                     mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                     _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
+                }, {
                     text: import("zod").ZodString;
-                }, import("zod").ZodTypeAny, "passthrough">>, import("zod").ZodObject<{
+                }>, import("zod").ZodTypeAny, "passthrough">>, import("zod").ZodObject<import("zod").objectUtil.extendShape<{
                     uri: import("zod").ZodString;
                     mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                     _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
+                }, {
                     blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-                }, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{
+                }>, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<import("zod").objectUtil.extendShape<{
                     uri: import("zod").ZodString;
                     mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                     _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
+                }, {
                     blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-                }, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{
+                }>, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<import("zod").objectUtil.extendShape<{
                     uri: import("zod").ZodString;
                     mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                     _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
+                }, {
                     blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-                }, import("zod").ZodTypeAny, "passthrough">>]>;
-                _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-            }, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{
-                type: import("zod").ZodLiteral<"resource">;
-                resource: import("zod").ZodUnion<[import("zod").ZodObject<{
-                    uri: import("zod").ZodString;
-                    mimeType: import("zod").ZodOptional<import("zod").ZodString>;
-                    _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
-                    text: import("zod").ZodString;
-                }, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{
-                    uri: import("zod").ZodString;
-                    mimeType: import("zod").ZodOptional<import("zod").ZodString>;
-                    _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
-                    text: import("zod").ZodString;
-                }, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{
-                    uri: import("zod").ZodString;
-                    mimeType: import("zod").ZodOptional<import("zod").ZodString>;
-                    _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
-                    text: import("zod").ZodString;
-                }, import("zod").ZodTypeAny, "passthrough">>, import("zod").ZodObject<{
-                    uri: import("zod").ZodString;
-                    mimeType: import("zod").ZodOptional<import("zod").ZodString>;
-                    _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
-                    blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-                }, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{
-                    uri: import("zod").ZodString;
-                    mimeType: import("zod").ZodOptional<import("zod").ZodString>;
-                    _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
-                    blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-                }, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{
-                    uri: import("zod").ZodString;
-                    mimeType: import("zod").ZodOptional<import("zod").ZodString>;
-                    _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
-                    blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-                }, import("zod").ZodTypeAny, "passthrough">>]>;
+                }>, import("zod").ZodTypeAny, "passthrough">>]>;
                 _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
             }, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{
                 type: import("zod").ZodLiteral<"resource">;
-                resource: import("zod").ZodUnion<[import("zod").ZodObject<{
+                resource: import("zod").ZodUnion<[import("zod").ZodObject<import("zod").objectUtil.extendShape<{
                     uri: import("zod").ZodString;
                     mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                     _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
+                }, {
                     text: import("zod").ZodString;
-                }, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{
+                }>, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<import("zod").objectUtil.extendShape<{
                     uri: import("zod").ZodString;
                     mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                     _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
+                }, {
                     text: import("zod").ZodString;
-                }, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{
+                }>, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<import("zod").objectUtil.extendShape<{
                     uri: import("zod").ZodString;
                     mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                     _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
+                }, {
                     text: import("zod").ZodString;
-                }, import("zod").ZodTypeAny, "passthrough">>, import("zod").ZodObject<{
+                }>, import("zod").ZodTypeAny, "passthrough">>, import("zod").ZodObject<import("zod").objectUtil.extendShape<{
                     uri: import("zod").ZodString;
                     mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                     _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
+                }, {
                     blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-                }, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{
+                }>, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<import("zod").objectUtil.extendShape<{
                     uri: import("zod").ZodString;
                     mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                     _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
+                }, {
                     blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-                }, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{
+                }>, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<import("zod").objectUtil.extendShape<{
                     uri: import("zod").ZodString;
                     mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                     _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-                } & {
+                }, {
                     blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-                }, import("zod").ZodTypeAny, "passthrough">>]>;
+                }>, import("zod").ZodTypeAny, "passthrough">>]>;
                 _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
             }, import("zod").ZodTypeAny, "passthrough">>]>;
         }, import("zod").ZodTypeAny, "passthrough">>, "many">;
-    }, import("zod").ZodTypeAny, "passthrough">>;
-    listPrompts(params?: ListPromptsRequest["params"], options?: RequestOptions): Promise<import("zod").objectOutputType<{
+    }>, import("zod").ZodTypeAny, "passthrough">>;
+    listPrompts(params?: ListPromptsRequest["params"], options?: RequestOptions): Promise<import("zod").objectOutputType<import("zod").objectUtil.extendShape<import("zod").objectUtil.extendShape<{
         _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-    } & {
+    }, {
         nextCursor: import("zod").ZodOptional<import("zod").ZodString>;
-    } & {
-        prompts: import("zod").ZodArray<import("zod").ZodObject<{
+    }>, {
+        prompts: import("zod").ZodArray<import("zod").ZodObject<import("zod").objectUtil.extendShape<{
             name: import("zod").ZodString;
             title: import("zod").ZodOptional<import("zod").ZodString>;
-        } & {
+        }, {
             description: import("zod").ZodOptional<import("zod").ZodString>;
             arguments: import("zod").ZodOptional<import("zod").ZodArray<import("zod").ZodObject<{
                 name: import("zod").ZodString;
@@ -705,10 +705,10 @@ export declare class Client<RequestT extends Request = Request, NotificationT ex
                 required: import("zod").ZodOptional<import("zod").ZodBoolean>;
             }, import("zod").ZodTypeAny, "passthrough">>, "many">>;
             _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-        }, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{
+        }>, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<import("zod").objectUtil.extendShape<{
             name: import("zod").ZodString;
             title: import("zod").ZodOptional<import("zod").ZodString>;
-        } & {
+        }, {
             description: import("zod").ZodOptional<import("zod").ZodString>;
             arguments: import("zod").ZodOptional<import("zod").ZodArray<import("zod").ZodObject<{
                 name: import("zod").ZodString;
@@ -724,10 +724,10 @@ export declare class Client<RequestT extends Request = Request, NotificationT ex
                 required: import("zod").ZodOptional<import("zod").ZodBoolean>;
             }, import("zod").ZodTypeAny, "passthrough">>, "many">>;
             _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-        }, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{
+        }>, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<import("zod").objectUtil.extendShape<{
             name: import("zod").ZodString;
             title: import("zod").ZodOptional<import("zod").ZodString>;
-        } & {
+        }, {
             description: import("zod").ZodOptional<import("zod").ZodString>;
             arguments: import("zod").ZodOptional<import("zod").ZodArray<import("zod").ZodObject<{
                 name: import("zod").ZodString;
@@ -743,120 +743,120 @@ export declare class Client<RequestT extends Request = Request, NotificationT ex
                 required: import("zod").ZodOptional<import("zod").ZodBoolean>;
             }, import("zod").ZodTypeAny, "passthrough">>, "many">>;
             _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-        }, import("zod").ZodTypeAny, "passthrough">>, "many">;
-    }, import("zod").ZodTypeAny, "passthrough">>;
-    listResources(params?: ListResourcesRequest["params"], options?: RequestOptions): Promise<import("zod").objectOutputType<{
+        }>, import("zod").ZodTypeAny, "passthrough">>, "many">;
+    }>, import("zod").ZodTypeAny, "passthrough">>;
+    listResources(params?: ListResourcesRequest["params"], options?: RequestOptions): Promise<import("zod").objectOutputType<import("zod").objectUtil.extendShape<import("zod").objectUtil.extendShape<{
         _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-    } & {
+    }, {
         nextCursor: import("zod").ZodOptional<import("zod").ZodString>;
-    } & {
-        resources: import("zod").ZodArray<import("zod").ZodObject<{
+    }>, {
+        resources: import("zod").ZodArray<import("zod").ZodObject<import("zod").objectUtil.extendShape<{
             name: import("zod").ZodString;
             title: import("zod").ZodOptional<import("zod").ZodString>;
-        } & {
+        }, {
             uri: import("zod").ZodString;
             description: import("zod").ZodOptional<import("zod").ZodString>;
             mimeType: import("zod").ZodOptional<import("zod").ZodString>;
             _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-        }, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{
+        }>, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<import("zod").objectUtil.extendShape<{
             name: import("zod").ZodString;
             title: import("zod").ZodOptional<import("zod").ZodString>;
-        } & {
+        }, {
             uri: import("zod").ZodString;
             description: import("zod").ZodOptional<import("zod").ZodString>;
             mimeType: import("zod").ZodOptional<import("zod").ZodString>;
             _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-        }, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{
+        }>, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<import("zod").objectUtil.extendShape<{
             name: import("zod").ZodString;
             title: import("zod").ZodOptional<import("zod").ZodString>;
-        } & {
+        }, {
             uri: import("zod").ZodString;
             description: import("zod").ZodOptional<import("zod").ZodString>;
             mimeType: import("zod").ZodOptional<import("zod").ZodString>;
             _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-        }, import("zod").ZodTypeAny, "passthrough">>, "many">;
-    }, import("zod").ZodTypeAny, "passthrough">>;
-    listResourceTemplates(params?: ListResourceTemplatesRequest["params"], options?: RequestOptions): Promise<import("zod").objectOutputType<{
+        }>, import("zod").ZodTypeAny, "passthrough">>, "many">;
+    }>, import("zod").ZodTypeAny, "passthrough">>;
+    listResourceTemplates(params?: ListResourceTemplatesRequest["params"], options?: RequestOptions): Promise<import("zod").objectOutputType<import("zod").objectUtil.extendShape<import("zod").objectUtil.extendShape<{
         _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-    } & {
+    }, {
         nextCursor: import("zod").ZodOptional<import("zod").ZodString>;
-    } & {
-        resourceTemplates: import("zod").ZodArray<import("zod").ZodObject<{
+    }>, {
+        resourceTemplates: import("zod").ZodArray<import("zod").ZodObject<import("zod").objectUtil.extendShape<{
             name: import("zod").ZodString;
             title: import("zod").ZodOptional<import("zod").ZodString>;
-        } & {
+        }, {
             uriTemplate: import("zod").ZodString;
             description: import("zod").ZodOptional<import("zod").ZodString>;
             mimeType: import("zod").ZodOptional<import("zod").ZodString>;
             _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-        }, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{
+        }>, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<import("zod").objectUtil.extendShape<{
             name: import("zod").ZodString;
             title: import("zod").ZodOptional<import("zod").ZodString>;
-        } & {
+        }, {
             uriTemplate: import("zod").ZodString;
             description: import("zod").ZodOptional<import("zod").ZodString>;
             mimeType: import("zod").ZodOptional<import("zod").ZodString>;
             _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-        }, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{
+        }>, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<import("zod").objectUtil.extendShape<{
             name: import("zod").ZodString;
             title: import("zod").ZodOptional<import("zod").ZodString>;
-        } & {
+        }, {
             uriTemplate: import("zod").ZodString;
             description: import("zod").ZodOptional<import("zod").ZodString>;
             mimeType: import("zod").ZodOptional<import("zod").ZodString>;
             _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-        }, import("zod").ZodTypeAny, "passthrough">>, "many">;
-    }, import("zod").ZodTypeAny, "passthrough">>;
-    readResource(params: ReadResourceRequest["params"], options?: RequestOptions): Promise<import("zod").objectOutputType<{
+        }>, import("zod").ZodTypeAny, "passthrough">>, "many">;
+    }>, import("zod").ZodTypeAny, "passthrough">>;
+    readResource(params: ReadResourceRequest["params"], options?: RequestOptions): Promise<import("zod").objectOutputType<import("zod").objectUtil.extendShape<{
         _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-    } & {
-        contents: import("zod").ZodArray<import("zod").ZodUnion<[import("zod").ZodObject<{
+    }, {
+        contents: import("zod").ZodArray<import("zod").ZodUnion<[import("zod").ZodObject<import("zod").objectUtil.extendShape<{
             uri: import("zod").ZodString;
             mimeType: import("zod").ZodOptional<import("zod").ZodString>;
             _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-        } & {
+        }, {
             text: import("zod").ZodString;
-        }, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{
+        }>, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<import("zod").objectUtil.extendShape<{
             uri: import("zod").ZodString;
             mimeType: import("zod").ZodOptional<import("zod").ZodString>;
             _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-        } & {
+        }, {
             text: import("zod").ZodString;
-        }, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{
+        }>, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<import("zod").objectUtil.extendShape<{
             uri: import("zod").ZodString;
             mimeType: import("zod").ZodOptional<import("zod").ZodString>;
             _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-        } & {
+        }, {
             text: import("zod").ZodString;
-        }, import("zod").ZodTypeAny, "passthrough">>, import("zod").ZodObject<{
+        }>, import("zod").ZodTypeAny, "passthrough">>, import("zod").ZodObject<import("zod").objectUtil.extendShape<{
             uri: import("zod").ZodString;
             mimeType: import("zod").ZodOptional<import("zod").ZodString>;
             _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-        } & {
+        }, {
             blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-        }, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{
+        }>, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<import("zod").objectUtil.extendShape<{
             uri: import("zod").ZodString;
             mimeType: import("zod").ZodOptional<import("zod").ZodString>;
             _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-        } & {
+        }, {
             blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-        }, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{
+        }>, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<import("zod").objectUtil.extendShape<{
             uri: import("zod").ZodString;
             mimeType: import("zod").ZodOptional<import("zod").ZodString>;
             _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-        } & {
+        }, {
             blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-        }, import("zod").ZodTypeAny, "passthrough">>]>, "many">;
-    }, import("zod").ZodTypeAny, "passthrough">>;
+        }>, import("zod").ZodTypeAny, "passthrough">>]>, "many">;
+    }>, import("zod").ZodTypeAny, "passthrough">>;
     subscribeResource(params: SubscribeRequest["params"], options?: RequestOptions): Promise<{
         _meta?: import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough"> | undefined;
     }>;
     unsubscribeResource(params: UnsubscribeRequest["params"], options?: RequestOptions): Promise<{
         _meta?: import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough"> | undefined;
     }>;
-    callTool(params: CallToolRequest["params"], resultSchema?: typeof CallToolResultSchema | typeof CompatibilityCallToolResultSchema, options?: RequestOptions): Promise<import("zod").objectOutputType<{
+    callTool(params: CallToolRequest["params"], resultSchema?: typeof CallToolResultSchema | typeof CompatibilityCallToolResultSchema, options?: RequestOptions): Promise<import("zod").objectOutputType<import("zod").objectUtil.extendShape<{
         _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-    } & {
+    }, {
         content: import("zod").ZodDefault<import("zod").ZodArray<import("zod").ZodUnion<[import("zod").ZodObject<{
             type: import("zod").ZodLiteral<"text">;
             text: import("zod").ZodString;
@@ -899,175 +899,175 @@ export declare class Client<RequestT extends Request = Request, NotificationT ex
             data: import("zod").ZodEffects<import("zod").ZodString, string, string>;
             mimeType: import("zod").ZodString;
             _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-        }, import("zod").ZodTypeAny, "passthrough">>, import("zod").ZodObject<{
+        }, import("zod").ZodTypeAny, "passthrough">>, import("zod").ZodObject<import("zod").objectUtil.extendShape<import("zod").objectUtil.extendShape<{
             name: import("zod").ZodString;
             title: import("zod").ZodOptional<import("zod").ZodString>;
-        } & {
+        }, {
             uri: import("zod").ZodString;
             description: import("zod").ZodOptional<import("zod").ZodString>;
             mimeType: import("zod").ZodOptional<import("zod").ZodString>;
             _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-        } & {
+        }>, {
             type: import("zod").ZodLiteral<"resource_link">;
+        }>, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<import("zod").objectUtil.extendShape<import("zod").objectUtil.extendShape<{
+            name: import("zod").ZodString;
+            title: import("zod").ZodOptional<import("zod").ZodString>;
+        }, {
+            uri: import("zod").ZodString;
+            description: import("zod").ZodOptional<import("zod").ZodString>;
+            mimeType: import("zod").ZodOptional<import("zod").ZodString>;
+            _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
+        }>, {
+            type: import("zod").ZodLiteral<"resource_link">;
+        }>, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<import("zod").objectUtil.extendShape<import("zod").objectUtil.extendShape<{
+            name: import("zod").ZodString;
+            title: import("zod").ZodOptional<import("zod").ZodString>;
+        }, {
+            uri: import("zod").ZodString;
+            description: import("zod").ZodOptional<import("zod").ZodString>;
+            mimeType: import("zod").ZodOptional<import("zod").ZodString>;
+            _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
+        }>, {
+            type: import("zod").ZodLiteral<"resource_link">;
+        }>, import("zod").ZodTypeAny, "passthrough">>, import("zod").ZodObject<{
+            type: import("zod").ZodLiteral<"resource">;
+            resource: import("zod").ZodUnion<[import("zod").ZodObject<import("zod").objectUtil.extendShape<{
+                uri: import("zod").ZodString;
+                mimeType: import("zod").ZodOptional<import("zod").ZodString>;
+                _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
+            }, {
+                text: import("zod").ZodString;
+            }>, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<import("zod").objectUtil.extendShape<{
+                uri: import("zod").ZodString;
+                mimeType: import("zod").ZodOptional<import("zod").ZodString>;
+                _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
+            }, {
+                text: import("zod").ZodString;
+            }>, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<import("zod").objectUtil.extendShape<{
+                uri: import("zod").ZodString;
+                mimeType: import("zod").ZodOptional<import("zod").ZodString>;
+                _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
+            }, {
+                text: import("zod").ZodString;
+            }>, import("zod").ZodTypeAny, "passthrough">>, import("zod").ZodObject<import("zod").objectUtil.extendShape<{
+                uri: import("zod").ZodString;
+                mimeType: import("zod").ZodOptional<import("zod").ZodString>;
+                _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
+            }, {
+                blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
+            }>, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<import("zod").objectUtil.extendShape<{
+                uri: import("zod").ZodString;
+                mimeType: import("zod").ZodOptional<import("zod").ZodString>;
+                _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
+            }, {
+                blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
+            }>, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<import("zod").objectUtil.extendShape<{
+                uri: import("zod").ZodString;
+                mimeType: import("zod").ZodOptional<import("zod").ZodString>;
+                _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
+            }, {
+                blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
+            }>, import("zod").ZodTypeAny, "passthrough">>]>;
+            _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
         }, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{
-            name: import("zod").ZodString;
-            title: import("zod").ZodOptional<import("zod").ZodString>;
-        } & {
-            uri: import("zod").ZodString;
-            description: import("zod").ZodOptional<import("zod").ZodString>;
-            mimeType: import("zod").ZodOptional<import("zod").ZodString>;
-            _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-        } & {
-            type: import("zod").ZodLiteral<"resource_link">;
-        }, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{
-            name: import("zod").ZodString;
-            title: import("zod").ZodOptional<import("zod").ZodString>;
-        } & {
-            uri: import("zod").ZodString;
-            description: import("zod").ZodOptional<import("zod").ZodString>;
-            mimeType: import("zod").ZodOptional<import("zod").ZodString>;
-            _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-        } & {
-            type: import("zod").ZodLiteral<"resource_link">;
-        }, import("zod").ZodTypeAny, "passthrough">>, import("zod").ZodObject<{
             type: import("zod").ZodLiteral<"resource">;
-            resource: import("zod").ZodUnion<[import("zod").ZodObject<{
+            resource: import("zod").ZodUnion<[import("zod").ZodObject<import("zod").objectUtil.extendShape<{
                 uri: import("zod").ZodString;
                 mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                 _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-            } & {
+            }, {
                 text: import("zod").ZodString;
-            }, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{
+            }>, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<import("zod").objectUtil.extendShape<{
                 uri: import("zod").ZodString;
                 mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                 _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-            } & {
+            }, {
                 text: import("zod").ZodString;
-            }, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{
+            }>, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<import("zod").objectUtil.extendShape<{
                 uri: import("zod").ZodString;
                 mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                 _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-            } & {
+            }, {
                 text: import("zod").ZodString;
-            }, import("zod").ZodTypeAny, "passthrough">>, import("zod").ZodObject<{
+            }>, import("zod").ZodTypeAny, "passthrough">>, import("zod").ZodObject<import("zod").objectUtil.extendShape<{
                 uri: import("zod").ZodString;
                 mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                 _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-            } & {
+            }, {
                 blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-            }, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{
+            }>, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<import("zod").objectUtil.extendShape<{
                 uri: import("zod").ZodString;
                 mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                 _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-            } & {
+            }, {
                 blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-            }, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{
+            }>, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<import("zod").objectUtil.extendShape<{
                 uri: import("zod").ZodString;
                 mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                 _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-            } & {
+            }, {
                 blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-            }, import("zod").ZodTypeAny, "passthrough">>]>;
-            _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-        }, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{
-            type: import("zod").ZodLiteral<"resource">;
-            resource: import("zod").ZodUnion<[import("zod").ZodObject<{
-                uri: import("zod").ZodString;
-                mimeType: import("zod").ZodOptional<import("zod").ZodString>;
-                _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-            } & {
-                text: import("zod").ZodString;
-            }, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{
-                uri: import("zod").ZodString;
-                mimeType: import("zod").ZodOptional<import("zod").ZodString>;
-                _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-            } & {
-                text: import("zod").ZodString;
-            }, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{
-                uri: import("zod").ZodString;
-                mimeType: import("zod").ZodOptional<import("zod").ZodString>;
-                _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-            } & {
-                text: import("zod").ZodString;
-            }, import("zod").ZodTypeAny, "passthrough">>, import("zod").ZodObject<{
-                uri: import("zod").ZodString;
-                mimeType: import("zod").ZodOptional<import("zod").ZodString>;
-                _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-            } & {
-                blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-            }, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{
-                uri: import("zod").ZodString;
-                mimeType: import("zod").ZodOptional<import("zod").ZodString>;
-                _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-            } & {
-                blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-            }, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{
-                uri: import("zod").ZodString;
-                mimeType: import("zod").ZodOptional<import("zod").ZodString>;
-                _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-            } & {
-                blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-            }, import("zod").ZodTypeAny, "passthrough">>]>;
+            }>, import("zod").ZodTypeAny, "passthrough">>]>;
             _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
         }, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{
             type: import("zod").ZodLiteral<"resource">;
-            resource: import("zod").ZodUnion<[import("zod").ZodObject<{
+            resource: import("zod").ZodUnion<[import("zod").ZodObject<import("zod").objectUtil.extendShape<{
                 uri: import("zod").ZodString;
                 mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                 _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-            } & {
+            }, {
                 text: import("zod").ZodString;
-            }, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{
+            }>, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<import("zod").objectUtil.extendShape<{
                 uri: import("zod").ZodString;
                 mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                 _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-            } & {
+            }, {
                 text: import("zod").ZodString;
-            }, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{
+            }>, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<import("zod").objectUtil.extendShape<{
                 uri: import("zod").ZodString;
                 mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                 _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-            } & {
+            }, {
                 text: import("zod").ZodString;
-            }, import("zod").ZodTypeAny, "passthrough">>, import("zod").ZodObject<{
+            }>, import("zod").ZodTypeAny, "passthrough">>, import("zod").ZodObject<import("zod").objectUtil.extendShape<{
                 uri: import("zod").ZodString;
                 mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                 _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-            } & {
+            }, {
                 blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-            }, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{
+            }>, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<import("zod").objectUtil.extendShape<{
                 uri: import("zod").ZodString;
                 mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                 _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-            } & {
+            }, {
                 blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-            }, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{
+            }>, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<import("zod").objectUtil.extendShape<{
                 uri: import("zod").ZodString;
                 mimeType: import("zod").ZodOptional<import("zod").ZodString>;
                 _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-            } & {
+            }, {
                 blob: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-            }, import("zod").ZodTypeAny, "passthrough">>]>;
+            }>, import("zod").ZodTypeAny, "passthrough">>]>;
             _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
         }, import("zod").ZodTypeAny, "passthrough">>]>, "many">>;
         structuredContent: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
         isError: import("zod").ZodOptional<import("zod").ZodBoolean>;
-    }, import("zod").ZodTypeAny, "passthrough"> | import("zod").objectOutputType<{
+    }>, import("zod").ZodTypeAny, "passthrough"> | import("zod").objectOutputType<import("zod").objectUtil.extendShape<{
         _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-    } & {
+    }, {
         toolResult: import("zod").ZodUnknown;
-    }, import("zod").ZodTypeAny, "passthrough">>;
+    }>, import("zod").ZodTypeAny, "passthrough">>;
     private cacheToolOutputSchemas;
     private getToolOutputValidator;
-    listTools(params?: ListToolsRequest["params"], options?: RequestOptions): Promise<import("zod").objectOutputType<{
+    listTools(params?: ListToolsRequest["params"], options?: RequestOptions): Promise<import("zod").objectOutputType<import("zod").objectUtil.extendShape<import("zod").objectUtil.extendShape<{
         _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-    } & {
+    }, {
         nextCursor: import("zod").ZodOptional<import("zod").ZodString>;
-    } & {
-        tools: import("zod").ZodArray<import("zod").ZodObject<{
+    }>, {
+        tools: import("zod").ZodArray<import("zod").ZodObject<import("zod").objectUtil.extendShape<{
             name: import("zod").ZodString;
             title: import("zod").ZodOptional<import("zod").ZodString>;
-        } & {
+        }, {
             description: import("zod").ZodOptional<import("zod").ZodString>;
             inputSchema: import("zod").ZodObject<{
                 type: import("zod").ZodLiteral<"object">;
@@ -1115,10 +1115,10 @@ export declare class Client<RequestT extends Request = Request, NotificationT ex
                 openWorldHint: import("zod").ZodOptional<import("zod").ZodBoolean>;
             }, import("zod").ZodTypeAny, "passthrough">>>;
             _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-        }, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{
+        }>, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<import("zod").objectUtil.extendShape<{
             name: import("zod").ZodString;
             title: import("zod").ZodOptional<import("zod").ZodString>;
-        } & {
+        }, {
             description: import("zod").ZodOptional<import("zod").ZodString>;
             inputSchema: import("zod").ZodObject<{
                 type: import("zod").ZodLiteral<"object">;
@@ -1166,10 +1166,10 @@ export declare class Client<RequestT extends Request = Request, NotificationT ex
                 openWorldHint: import("zod").ZodOptional<import("zod").ZodBoolean>;
             }, import("zod").ZodTypeAny, "passthrough">>>;
             _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-        }, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{
+        }>, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<import("zod").objectUtil.extendShape<{
             name: import("zod").ZodString;
             title: import("zod").ZodOptional<import("zod").ZodString>;
-        } & {
+        }, {
             description: import("zod").ZodOptional<import("zod").ZodString>;
             inputSchema: import("zod").ZodObject<{
                 type: import("zod").ZodLiteral<"object">;
@@ -1217,8 +1217,8 @@ export declare class Client<RequestT extends Request = Request, NotificationT ex
                 openWorldHint: import("zod").ZodOptional<import("zod").ZodBoolean>;
             }, import("zod").ZodTypeAny, "passthrough">>>;
             _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-        }, import("zod").ZodTypeAny, "passthrough">>, "many">;
-    }, import("zod").ZodTypeAny, "passthrough">>;
+        }>, import("zod").ZodTypeAny, "passthrough">>, "many">;
+    }>, import("zod").ZodTypeAny, "passthrough">>;
     sendRootsListChanged(): Promise<void>;
 }
 //# sourceMappingURL=index.d.ts.map

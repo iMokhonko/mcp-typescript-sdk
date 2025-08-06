@@ -136,21 +136,6 @@ export declare class CustomOAuthError extends OAuthError {
  * A full list of all OAuthErrors, enabling parsing from error responses
  */
 export declare const OAUTH_ERRORS: {
-    readonly [InvalidRequestError.errorCode]: typeof InvalidRequestError;
-    readonly [InvalidClientError.errorCode]: typeof InvalidClientError;
-    readonly [InvalidGrantError.errorCode]: typeof InvalidGrantError;
-    readonly [UnauthorizedClientError.errorCode]: typeof UnauthorizedClientError;
-    readonly [UnsupportedGrantTypeError.errorCode]: typeof UnsupportedGrantTypeError;
-    readonly [InvalidScopeError.errorCode]: typeof InvalidScopeError;
-    readonly [AccessDeniedError.errorCode]: typeof AccessDeniedError;
-    readonly [ServerError.errorCode]: typeof ServerError;
-    readonly [TemporarilyUnavailableError.errorCode]: typeof TemporarilyUnavailableError;
-    readonly [UnsupportedResponseTypeError.errorCode]: typeof UnsupportedResponseTypeError;
-    readonly [UnsupportedTokenTypeError.errorCode]: typeof UnsupportedTokenTypeError;
-    readonly [InvalidTokenError.errorCode]: typeof InvalidTokenError;
-    readonly [MethodNotAllowedError.errorCode]: typeof MethodNotAllowedError;
-    readonly [TooManyRequestsError.errorCode]: typeof TooManyRequestsError;
-    readonly [InvalidClientMetadataError.errorCode]: typeof InvalidClientMetadataError;
-    readonly [InsufficientScopeError.errorCode]: typeof InsufficientScopeError;
+    readonly [x: string]: typeof InvalidRequestError;
 };
 //# sourceMappingURL=errors.d.ts.map

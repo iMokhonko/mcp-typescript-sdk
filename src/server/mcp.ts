@@ -415,7 +415,8 @@ export class McpServer {
               `Resource ${uri} disabled`,
             );
           }
-          return resource.readCallback(uri, extra);
+          
+          return await resource.readCallback(uri, extra);
         }
 
         // Then check templates
@@ -426,7 +427,7 @@ export class McpServer {
             uri.toString(),
           );
           if (variables) {
-            return template.readCallback(uri, variables, extra);
+            return await template.readCallback(uri, variables, extra);
           }
         }
 

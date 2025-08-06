@@ -235,13 +235,13 @@ class McpServer {
                 if (!resource.enabled) {
                     throw new types_js_1.McpError(types_js_1.ErrorCode.InvalidParams, `Resource ${uri} disabled`);
                 }
-                return resource.readCallback(uri, extra);
+                return await resource.readCallback(uri, extra);
             }
             // Then check templates
             for (const template of Object.values(this._registeredResourceTemplates)) {
                 const variables = template.resourceTemplate.uriTemplate.match(uri.toString());
                 if (variables) {
-                    return template.readCallback(uri, variables, extra);
+                    return await template.readCallback(uri, variables, extra);
                 }
             }
             throw new types_js_1.McpError(types_js_1.ErrorCode.InvalidParams, `Resource ${uri} not found`);

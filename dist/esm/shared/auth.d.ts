@@ -227,7 +227,7 @@ export declare const OpenIdProviderMetadataSchema: z.ZodObject<{
  * This schema represents the real-world scenario where OIDC providers
  * return a mix of OpenID Connect and OAuth 2.0 metadata fields
  */
-export declare const OpenIdProviderDiscoveryMetadataSchema: z.ZodObject<{
+export declare const OpenIdProviderDiscoveryMetadataSchema: z.ZodObject<z.objectUtil.extendShape<{
     issuer: z.ZodString;
     authorization_endpoint: z.ZodString;
     token_endpoint: z.ZodString;
@@ -263,7 +263,7 @@ export declare const OpenIdProviderDiscoveryMetadataSchema: z.ZodObject<{
     require_request_uri_registration: z.ZodOptional<z.ZodBoolean>;
     op_policy_uri: z.ZodOptional<z.ZodString>;
     op_tos_uri: z.ZodOptional<z.ZodString>;
-} & Pick<{
+}, Pick<{
     issuer: z.ZodString;
     authorization_endpoint: z.ZodString;
     token_endpoint: z.ZodString;
@@ -282,7 +282,7 @@ export declare const OpenIdProviderDiscoveryMetadataSchema: z.ZodObject<{
     introspection_endpoint_auth_methods_supported: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
     introspection_endpoint_auth_signing_alg_values_supported: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
     code_challenge_methods_supported: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
-}, "code_challenge_methods_supported">, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+}, "code_challenge_methods_supported">>, "passthrough", z.ZodTypeAny, z.objectOutputType<z.objectUtil.extendShape<{
     issuer: z.ZodString;
     authorization_endpoint: z.ZodString;
     token_endpoint: z.ZodString;
@@ -318,7 +318,7 @@ export declare const OpenIdProviderDiscoveryMetadataSchema: z.ZodObject<{
     require_request_uri_registration: z.ZodOptional<z.ZodBoolean>;
     op_policy_uri: z.ZodOptional<z.ZodString>;
     op_tos_uri: z.ZodOptional<z.ZodString>;
-} & Pick<{
+}, Pick<{
     issuer: z.ZodString;
     authorization_endpoint: z.ZodString;
     token_endpoint: z.ZodString;
@@ -337,7 +337,7 @@ export declare const OpenIdProviderDiscoveryMetadataSchema: z.ZodObject<{
     introspection_endpoint_auth_methods_supported: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
     introspection_endpoint_auth_signing_alg_values_supported: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
     code_challenge_methods_supported: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
-}, "code_challenge_methods_supported">, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+}, "code_challenge_methods_supported">>, z.ZodTypeAny, "passthrough">, z.objectInputType<z.objectUtil.extendShape<{
     issuer: z.ZodString;
     authorization_endpoint: z.ZodString;
     token_endpoint: z.ZodString;
@@ -373,7 +373,7 @@ export declare const OpenIdProviderDiscoveryMetadataSchema: z.ZodObject<{
     require_request_uri_registration: z.ZodOptional<z.ZodBoolean>;
     op_policy_uri: z.ZodOptional<z.ZodString>;
     op_tos_uri: z.ZodOptional<z.ZodString>;
-} & Pick<{
+}, Pick<{
     issuer: z.ZodString;
     authorization_endpoint: z.ZodString;
     token_endpoint: z.ZodString;
@@ -392,7 +392,7 @@ export declare const OpenIdProviderDiscoveryMetadataSchema: z.ZodObject<{
     introspection_endpoint_auth_methods_supported: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
     introspection_endpoint_auth_signing_alg_values_supported: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
     code_challenge_methods_supported: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
-}, "code_challenge_methods_supported">, z.ZodTypeAny, "passthrough">>;
+}, "code_challenge_methods_supported">>, z.ZodTypeAny, "passthrough">>;
 /**
  * OAuth 2.1 token response
  */
@@ -511,7 +511,7 @@ export declare const OAuthClientInformationSchema: z.ZodObject<{
 /**
  * RFC 7591 OAuth 2.0 Dynamic Client Registration full response (client information plus metadata)
  */
-export declare const OAuthClientInformationFullSchema: z.ZodObject<{
+export declare const OAuthClientInformationFullSchema: z.ZodObject<z.objectUtil.extendShape<{
     redirect_uris: z.ZodEffects<z.ZodArray<z.ZodString, "many">, string[], string[]>;
     token_endpoint_auth_method: z.ZodOptional<z.ZodString>;
     grant_types: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
@@ -528,12 +528,12 @@ export declare const OAuthClientInformationFullSchema: z.ZodObject<{
     software_id: z.ZodOptional<z.ZodString>;
     software_version: z.ZodOptional<z.ZodString>;
     software_statement: z.ZodOptional<z.ZodString>;
-} & {
+}, {
     client_id: z.ZodString;
     client_secret: z.ZodOptional<z.ZodString>;
     client_id_issued_at: z.ZodOptional<z.ZodNumber>;
     client_secret_expires_at: z.ZodOptional<z.ZodNumber>;
-}, "strip", z.ZodTypeAny, {
+}>, "strip", z.ZodTypeAny, {
     redirect_uris: string[];
     client_id: string;
     jwks_uri?: string | undefined;

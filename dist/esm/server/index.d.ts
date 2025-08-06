@@ -71,9 +71,9 @@ export declare class Server<RequestT extends Request = Request, NotificationT ex
     ping(): Promise<{
         _meta?: import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough"> | undefined;
     }>;
-    createMessage(params: CreateMessageRequest["params"], options?: RequestOptions): Promise<import("zod").objectOutputType<{
+    createMessage(params: CreateMessageRequest["params"], options?: RequestOptions): Promise<import("zod").objectOutputType<import("zod").objectUtil.extendShape<{
         _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-    } & {
+    }, {
         model: import("zod").ZodString;
         stopReason: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodEnum<["endTurn", "stopSequence", "maxTokens"]>, import("zod").ZodString]>>;
         role: import("zod").ZodEnum<["user", "assistant"]>;
@@ -120,11 +120,11 @@ export declare class Server<RequestT extends Request = Request, NotificationT ex
             mimeType: import("zod").ZodString;
             _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
         }, import("zod").ZodTypeAny, "passthrough">>]>;
-    }, import("zod").ZodTypeAny, "passthrough">>;
+    }>, import("zod").ZodTypeAny, "passthrough">>;
     elicitInput(params: ElicitRequest["params"], options?: RequestOptions): Promise<ElicitResult>;
-    listRoots(params?: ListRootsRequest["params"], options?: RequestOptions): Promise<import("zod").objectOutputType<{
+    listRoots(params?: ListRootsRequest["params"], options?: RequestOptions): Promise<import("zod").objectOutputType<import("zod").objectUtil.extendShape<{
         _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
-    } & {
+    }, {
         roots: import("zod").ZodArray<import("zod").ZodObject<{
             uri: import("zod").ZodString;
             name: import("zod").ZodOptional<import("zod").ZodString>;
@@ -138,7 +138,7 @@ export declare class Server<RequestT extends Request = Request, NotificationT ex
             name: import("zod").ZodOptional<import("zod").ZodString>;
             _meta: import("zod").ZodOptional<import("zod").ZodObject<{}, "passthrough", import("zod").ZodTypeAny, import("zod").objectOutputType<{}, import("zod").ZodTypeAny, "passthrough">, import("zod").objectInputType<{}, import("zod").ZodTypeAny, "passthrough">>>;
         }, import("zod").ZodTypeAny, "passthrough">>, "many">;
-    }, import("zod").ZodTypeAny, "passthrough">>;
+    }>, import("zod").ZodTypeAny, "passthrough">>;
     sendLoggingMessage(params: LoggingMessageNotification["params"]): Promise<void>;
     sendResourceUpdated(params: ResourceUpdatedNotification["params"]): Promise<void>;
     sendResourceListChanged(): Promise<void>;
