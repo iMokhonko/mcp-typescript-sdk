@@ -487,7 +487,7 @@ export class StreamableHTTPServerTransport implements Transport {
 
         // handle each message
         for (const message of messages) {
-          this.onmessage?.(message, { authInfo, requestInfo });
+          await this.onmessage?.(message, { authInfo, requestInfo });
         }
       } else if (hasRequests) {
         // The default behavior is to use SSE streaming
@@ -522,7 +522,7 @@ export class StreamableHTTPServerTransport implements Transport {
 
         // handle each message
         for (const message of messages) {
-          this.onmessage?.(message, { authInfo, requestInfo });
+          await this.onmessage?.(message, { authInfo, requestInfo });
         }
         // The server SHOULD NOT close the SSE stream before sending all JSON-RPC responses
         // This will be handled by the send() method when responses are ready
